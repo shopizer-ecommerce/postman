@@ -1,0 +1,206 @@
+{
+	"info": {
+		"_postman_id": "2f014202-615f-4df5-9e62-d7085414a156",
+		"name": "shopizer-admin-merchant",
+		"description": "Merchant use cases",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "login - admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\":\"admin@shopizer.com\",\n  \"password\":\"password\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/private/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"login"
+							]
+						},
+						"description": "Login as a User for store administration"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Use Case - Single Store",
+			"item": [
+				{
+					"name": "Get merchant store",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/store/DEFAULT",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"store",
+								"DEFAULT"
+							]
+						},
+						"description": "Get public MerchantStore information"
+					},
+					"response": []
+				},
+				{
+					"name": "Put merchant store",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"address\": {\n    \"stateProvince\": \"QC\",\n    \"country\": \"CA\",\n    \"address\": \"306 Du Languedoc\",\n    \"postalCode\": \"J4A-5J6\",\n    \"city\": \"Boucherville\"\n  },\n  \"currency\": \"USD\",\n  \"currencyFormatNational\": true,\n  \"defaultLanguage\": \"en\",\n  \"dimension\": \"IN\",\n  \"weight\": \"LB\",\n  \"email\": \"infos@myswesomestore.com\",\n  \"inBusinessSince\": \"2010-09-01\",\n  \"name\": \"My Awesome Store\",\n  \"phone\": \"444-555-6666\",\n  \"retailer\": true,\n  \"supportedLanguages\": [\n    \"en\",\"fr\"\n  ],\n  \"useCache\": true\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/store/DEFAULT",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"store",
+								"DEFAULT"
+							]
+						},
+						"description": "Edit MerchantStore"
+					},
+					"response": []
+				},
+				{
+					"name": "Post store logo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/carlsamson/Downloads/63.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/private/store/DEFAULT/marketing/logo",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"store",
+								"DEFAULT",
+								"marketing",
+								"logo"
+							]
+						},
+						"description": "Add store logo\nMulti part form request"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete store logo",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/private/store/DEFAULT/marketing/logo",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"store",
+								"DEFAULT",
+								"marketing",
+								"logo"
+							]
+						},
+						"description": "Simple request to delete store logo"
+					},
+					"response": []
+				}
+			],
+			"description": "Default out of the box use case. Simple use case where a merchant manages its own store, categories, products and inventory",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
