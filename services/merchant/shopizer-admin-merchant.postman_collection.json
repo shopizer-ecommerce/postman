@@ -21,7 +21,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"username\":\"admin@shopizer.com\",\n  \"password\":\"password\"\n}"
+							"raw": "{\n  \"username\":\"admin@shopizer.com\",\n  \"password\":\"password\"\n}",
+							"options": {
+								"raw": {}
+							}
 						},
 						"url": {
 							"raw": "{{url}}/api/v1/private/login",
@@ -89,7 +92,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"address\": {\n    \"stateProvince\": \"QC\",\n    \"country\": \"CA\",\n    \"address\": \"306 Du Languedoc\",\n    \"postalCode\": \"J4A-5J6\",\n    \"city\": \"Boucherville\"\n  },\n  \"currency\": \"USD\",\n  \"currencyFormatNational\": true,\n  \"defaultLanguage\": \"en\",\n  \"dimension\": \"IN\",\n  \"weight\": \"LB\",\n  \"email\": \"infos@myswesomestore.com\",\n  \"inBusinessSince\": \"2010-09-01\",\n  \"name\": \"My Awesome Store\",\n  \"phone\": \"444-555-6666\",\n  \"retailer\": true,\n  \"supportedLanguages\": [\n    \"en\",\"fr\"\n  ],\n  \"useCache\": true\n}"
+							"raw": "{\n  \"address\": {\n    \"stateProvince\": \"QC\",\n    \"country\": \"CA\",\n    \"address\": \"306 Du Languedoc\",\n    \"postalCode\": \"J4A-5J6\",\n    \"city\": \"Boucherville\"\n  },\n  \"currency\": \"USD\",\n  \"currencyFormatNational\": true,\n  \"defaultLanguage\": \"en\",\n  \"dimension\": \"IN\",\n  \"weight\": \"LB\",\n  \"email\": \"infos@myswesomestore.com\",\n  \"inBusinessSince\": \"2010-09-01\",\n  \"name\": \"My Awesome Store\",\n  \"phone\": \"444-555-6666\",\n  \"supportedLanguages\": [\n    \"en\",\"fr\"\n  ],\n  \"useCache\": true\n}",
+							"options": {
+								"raw": {}
+							}
 						},
 						"url": {
 							"raw": "{{url}}/api/v1/store/DEFAULT",
@@ -136,7 +142,10 @@
 									"type": "file",
 									"src": "/Users/carlsamson/Downloads/63.jpg"
 								}
-							]
+							],
+							"options": {
+								"formdata": {}
+							}
 						},
 						"url": {
 							"raw": "{{url}}/api/v1/private/store/DEFAULT/marketing/logo",
@@ -199,6 +208,185 @@
 				}
 			],
 			"description": "Default out of the box use case. Simple use case where a merchant manages its own store, categories, products and inventory",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Use Case - Multiple Stores",
+			"item": [
+				{
+					"name": "Check is store code already exists",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/private/store/unique?code=DEFAULT",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"store",
+								"unique"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "DEFAULT"
+								}
+							]
+						},
+						"description": "Check api /api/v1/private/store/unique?code=abc\n\nto see if that code exists. Store codes must be unique"
+					},
+					"response": []
+				},
+				{
+					"name": "Post merchant store - creates new store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"address\": {\n    \"stateProvince\": \"CA\",\n    \"country\": \"US\",\n    \"address\": \"110 My Street\",\n    \"postalCode\": \"12345\",\n    \"city\": \"Long Beach\"\n  },\n  \"code\": \"longbeachstore\",\n  \"currency\": \"USD\",\n  \"currencyFormatNational\": true,\n  \"defaultLanguage\": \"en\",\n  \"dimension\": \"IN\",\n  \"weight\": \"LB\",\n  \"email\": \"infos@mystore.com\",\n  \"inBusinessSince\": \"2012-09-01\",\n  \"name\": \"My New Store\",\n  \"phone\": \"444-777-9999\",\n  \"supportedLanguages\": [\n    \"en\",\"fr\"\n  ],\n  \"useCache\": true\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/private/store",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"store"
+							]
+						},
+						"description": "Create MerchantStore\n\nPay attention to code field in store payload"
+					},
+					"response": []
+				},
+				{
+					"name": "Get merchant store",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/store/DEFAULT",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"store",
+								"DEFAULT"
+							]
+						},
+						"description": "Get public MerchantStore information"
+					},
+					"response": []
+				},
+				{
+					"name": "Create new user for new store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer  {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"active\": true,\n    \"defaultLanguage\": \"en\",\n    \"emailAddress\": \"infos@mystore.com\",\n    \"firstName\": \"Mike\",\n    \"groups\": [\n        {\n            \"name\": \"ADMIN\"\n        }\n    ],\n    \"lastName\": \"LongBeach\",\n    \"password\": \"mikepassword001!\",\n    \"userName\": \"mike@longbeachstore.com\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/private/user/?store=longbeachstore",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"user",
+								""
+							],
+							"query": [
+								{
+									"key": "store",
+									"value": "longbeachstore"
+								}
+							]
+						},
+						"description": "Create a user with admin role. User created by superuser\n\nYou will be able to perform subsequent opertions in merchant store with this user"
+					},
+					"response": []
+				}
+			],
+			"description": "Allows the creation of multiple stores in the system\n\nThis use case creates a new store. superadmin it the user creating new store\n\n- check if new store to be created unique code already exist\n- create new store with new unique id\n- create new user and attach user to new store\n- get store list (will include new store)\n- login new user to new store\n- new user edit new store",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "3912b075-2afa-46bc-a4cf-efb8bd1c4dad",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "52e9b216-a180-41bd-b88f-239829e2969c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
 			"protocolProfileBehavior": {}
 		}
 	],
