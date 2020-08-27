@@ -1,0 +1,268 @@
+{
+	"info": {
+		"_postman_id": "f4c63d49-c53d-4af7-972c-fa46d7135f88",
+		"name": "shopizer-admin-user-management",
+		"description": "Merchant use cases",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "login - admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\":\"admin@shopizer.com\",\n  \"password\":\"password\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/private/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"login"
+							]
+						},
+						"description": "Login as a User for store administration"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Use Case - Manage Users",
+			"item": [
+				{
+					"name": "List users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/private/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"users"
+							]
+						},
+						"description": "List users of a given store\n\nCan only be performed by an authority\n\nsuperadmin\nadmin_retailer\nadmin\n\n{{url}}/api/v1/private/users\n\napi/v1/private/users\n\nWill use DEFAULT store\notherwise send store code as request parameter \n?store={{code}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/private/users/1000",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"users",
+								"1000"
+							]
+						},
+						"description": "Get a specific user of a specific store"
+					},
+					"response": []
+				},
+				{
+					"name": "Get self profile once authenticated",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/private/user/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"user",
+								"profile"
+							]
+						},
+						"description": "Get a specific user of a specific store"
+					},
+					"response": []
+				},
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"active\": true,\n    \"defaultLanguage\": \"en\",\n    \"emailAddress\": \"email@email.com\",\n    \"firstName\": \"Admin\",\n    \"groups\": [\n        {\n            \"name\": \"ADMIN\"\n        }\n    ],\n    \"lastName\": \"Shopizer\",\n    \"password\": \"password\",\n    \"userName\": \"username\"\n}",
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/private/user/?store=uniqueCode",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"user",
+								""
+							],
+							"query": [
+								{
+									"key": "store",
+									"value": "uniqueCode"
+								}
+							]
+						},
+						"description": "Create a user for a specific store\n\nIn this usecase superadmin creates an admin user for \na specific store (uniqueCode)\n\n** uniqueCode store code needs to exist before \ncreating the user"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit a user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"active\": true,\n    \"defaultLanguage\": \"en\",\n    \"emailAddress\": \"email@email.com\",\n    \"firstName\": \"John\",\n    \"groups\": [\n        {\n            \"name\": \"ADMIN\"\n        }\n    ],\n    \"lastName\": \"Shopizer\",\n    \"userName\": \"user@shopizer.com\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/private/user/1650?store=uniqueCode",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"user",
+								"1650"
+							],
+							"query": [
+								{
+									"key": "store",
+									"value": "uniqueCode"
+								}
+							]
+						},
+						"description": "Edit a user of a specific store"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/private/user/1650?store=uniqueCode",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"user",
+								"1650"
+							],
+							"query": [
+								{
+									"key": "store",
+									"value": "uniqueCode"
+								}
+							]
+						},
+						"description": "Delete a user of a specific store"
+					},
+					"response": []
+				}
+			],
+			"description": "Default out of the box use case. Simple use case where a merchant manages its own store, categories, products and inventory",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
