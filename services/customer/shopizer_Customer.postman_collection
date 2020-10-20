@@ -1,0 +1,498 @@
+{
+	"info": {
+		"_postman_id": "8d4c095b-5ca6-4a34-8a37-5e73c701f6c8",
+		"name": "shopizer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Get Customer profile Using ID",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://10.151.35.12:9090/api/v1/private/customer/50",
+							"protocol": "http",
+							"host": [
+								"10",
+								"151",
+								"35",
+								"12"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"customer",
+								"50"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Customer using Post data",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "kaushal",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 60,\r\n    \"emailAddress\": \"kaushal.kanjariya@gmail.com\",\r\n    \"billing\": {\r\n        \"postalCode\": \"364240\",\r\n        \"countryCode\": null,\r\n        \"firstName\": \"kaushal\",\r\n        \"lastName\": \"kanjariya\",\r\n        \"bilstateOther\": null,\r\n        \"company\": \"2018-12-12\",\r\n        \"phone\": \"8888888888\",\r\n        \"address\": \"123 street\",\r\n        \"city\": \"Toronto\",\r\n        \"stateProvince\": null,\r\n        \"billingAddress\": false,\r\n        \"latitude\": null,\r\n        \"longitude\": null,\r\n        \"zone\": \"QC\",\r\n        \"country\": \"AL\"\r\n    },\r\n    \"delivery\": {\r\n        \"postalCode\": \"364240\",\r\n        \"countryCode\": null,\r\n        \"firstName\": \"kaushal\",\r\n        \"lastName\": \"kanjariya\",\r\n        \"bilstateOther\": null,\r\n        \"company\": \"2018-12-12\",\r\n        \"phone\": \"8888888888\",\r\n        \"address\": \"123 street\",\r\n        \"city\": \"Toronto\",\r\n        \"stateProvince\": null,\r\n        \"billingAddress\": false,\r\n        \"latitude\": null,\r\n        \"longitude\": null,\r\n        \"zone\": \"QC\",\r\n        \"country\": \"AL\"\r\n    },\r\n    \"gender\": null,\r\n    \"language\": null,\r\n    \"firstName\": \"kaushal\",\r\n    \"lastName\": \"kanjariya\",\r\n    \"provider\": null,\r\n    \"storeCode\": null,\r\n    \"userName\": null,\r\n    \"rating\": 0,\r\n    \"ratingCount\": 0,\r\n    \"password\": null,\r\n    \"attributes\": null,\r\n    \"groups\": [\r\n        {\r\n            \"name\": \"string\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://10.151.35.12:9090/api/v1/private/customer",
+							"protocol": "http",
+							"host": [
+								"10",
+								"151",
+								"35",
+								"12"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update customer profile using ID",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "kaushal",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 60,\r\n    \"emailAddress\": \"sanjay.dhamelia@gmail.com\",\r\n    \"billing\": {\r\n        \"postalCode\": \"364240\",\r\n        \"countryCode\": null,\r\n        \"firstName\": \"sanjay\",\r\n        \"lastName\": \"dhamelia\",\r\n        \"bilstateOther\": null,\r\n        \"company\": \"2018-12-12\",\r\n        \"phone\": \"8888888888\",\r\n        \"address\": \"123 street\",\r\n        \"city\": \"Toronto\",\r\n        \"stateProvince\": null,\r\n        \"billingAddress\": false,\r\n        \"latitude\": null,\r\n        \"longitude\": null,\r\n        \"zone\": \"QC\",\r\n        \"country\": \"AL\"\r\n    },\r\n    \"delivery\": {\r\n        \"postalCode\": \"364240\",\r\n        \"countryCode\": null,\r\n        \"firstName\": \"kaushal\",\r\n        \"lastName\": \"kanjariya\",\r\n        \"bilstateOther\": null,\r\n        \"company\": \"2018-12-12\",\r\n        \"phone\": \"8888888888\",\r\n        \"address\": \"123 street\",\r\n        \"city\": \"Toronto\",\r\n        \"stateProvince\": null,\r\n        \"billingAddress\": false,\r\n        \"latitude\": null,\r\n        \"longitude\": null,\r\n        \"zone\": \"QC\",\r\n        \"country\": \"AL\"\r\n    },\r\n    \"gender\": null,\r\n    \"language\": null,\r\n    \"firstName\": \"kaushal\",\r\n    \"lastName\": \"kanjariya\",\r\n    \"provider\": null,\r\n    \"storeCode\": null,\r\n    \"userName\": null,\r\n    \"rating\": 0,\r\n    \"ratingCount\": 0,\r\n    \"password\": null,\r\n    \"attributes\": null,\r\n    \"groups\": [\r\n        {\r\n            \"name\": \"string\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://10.151.35.12:9090/api/v1/private/customer/57",
+							"protocol": "http",
+							"host": [
+								"10",
+								"151",
+								"35",
+								"12"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"customer",
+								"57"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer Profile using ID",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "kaushal",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 60,\r\n    \"emailAddress\": \"sanjay.dhamelia@gmail.com\",\r\n    \"billing\": {\r\n        \"postalCode\": \"364240\",\r\n        \"countryCode\": null,\r\n        \"firstName\": \"sanjay\",\r\n        \"lastName\": \"dhamelia\",\r\n        \"bilstateOther\": null,\r\n        \"company\": \"2018-12-12\",\r\n        \"phone\": \"8888888888\",\r\n        \"address\": \"123 street\",\r\n        \"city\": \"Toronto\",\r\n        \"stateProvince\": null,\r\n        \"billingAddress\": false,\r\n        \"latitude\": null,\r\n        \"longitude\": null,\r\n        \"zone\": \"QC\",\r\n        \"country\": \"AL\"\r\n    },\r\n    \"delivery\": {\r\n        \"postalCode\": \"364240\",\r\n        \"countryCode\": null,\r\n        \"firstName\": \"kaushal\",\r\n        \"lastName\": \"kanjariya\",\r\n        \"bilstateOther\": null,\r\n        \"company\": \"2018-12-12\",\r\n        \"phone\": \"8888888888\",\r\n        \"address\": \"123 street\",\r\n        \"city\": \"Toronto\",\r\n        \"stateProvince\": null,\r\n        \"billingAddress\": false,\r\n        \"latitude\": null,\r\n        \"longitude\": null,\r\n        \"zone\": \"QC\",\r\n        \"country\": \"AL\"\r\n    },\r\n    \"gender\": null,\r\n    \"language\": null,\r\n    \"firstName\": \"kaushal\",\r\n    \"lastName\": \"kanjariya\",\r\n    \"provider\": null,\r\n    \"storeCode\": null,\r\n    \"userName\": null,\r\n    \"rating\": 0,\r\n    \"ratingCount\": 0,\r\n    \"password\": null,\r\n    \"attributes\": null,\r\n    \"groups\": [\r\n        {\r\n            \"name\": \"string\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://10.151.35.12:9090/api/v1/private/customer/59",
+							"protocol": "http",
+							"host": [
+								"10",
+								"151",
+								"35",
+								"12"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"customer",
+								"59"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Customer address using ID",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "kaushal",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"billing\": {\r\n        \"postalCode\": \"364240\",\r\n        \"countryCode\": \"AL\",\r\n        \"firstName\": \"kaushal\",\r\n        \"lastName\": \"kanjariya\",\r\n        \"bilstateOther\": null,\r\n        \"company\": \"2018-12-12\",\r\n        \"phone\": \"8888888888\",\r\n        \"address\": \"456 street\",\r\n        \"city\": \"Toronto\",\r\n        \"stateProvince\": null,\r\n        \"billingAddress\": false,\r\n        \"latitude\": null,\r\n        \"longitude\": null,\r\n        \"zone\": \"QC\",\r\n        \"country\": \"AL\"\r\n    },\r\n    \"delivery\": {\r\n        \"postalCode\": \"364240\",\r\n        \"countryCode\": \"AL\",\r\n        \"firstName\": \"kaushal\",\r\n        \"lastName\": \"kanjariya\",\r\n        \"bilstateOther\": null,\r\n        \"company\": \"2018-12-12\",\r\n        \"phone\": \"8888888888\",\r\n        \"address\": \"123 street\",\r\n        \"city\": \"Toronto\",\r\n        \"stateProvince\": null,\r\n        \"billingAddress\": false,\r\n        \"latitude\": null,\r\n        \"longitude\": null,\r\n        \"zone\": \"QC\",\r\n        \"country\": \"AL\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://10.151.35.12:9090/api/v1/private/customer/56/address",
+							"protocol": "http",
+							"host": [
+								"10",
+								"151",
+								"35",
+								"12"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"customer",
+								"56",
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get filtered list of customers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "kaushal",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"billing\": {\r\n        \"postalCode\": \"364240\",\r\n        \"countryCode\": \"AL\",\r\n        \"firstName\": \"kaushal\",\r\n        \"lastName\": \"kanjariya\",\r\n        \"bilstateOther\": null,\r\n        \"company\": \"2018-12-12\",\r\n        \"phone\": \"8888888888\",\r\n        \"address\": \"456 street\",\r\n        \"city\": \"Toronto\",\r\n        \"stateProvince\": null,\r\n        \"billingAddress\": false,\r\n        \"latitude\": null,\r\n        \"longitude\": null,\r\n        \"zone\": \"QC\",\r\n        \"country\": \"AL\"\r\n    },\r\n    \"delivery\": {\r\n        \"postalCode\": \"364240\",\r\n        \"countryCode\": \"AL\",\r\n        \"firstName\": \"kaushal\",\r\n        \"lastName\": \"kanjariya\",\r\n        \"bilstateOther\": null,\r\n        \"company\": \"2018-12-12\",\r\n        \"phone\": \"8888888888\",\r\n        \"address\": \"123 street\",\r\n        \"city\": \"Toronto\",\r\n        \"stateProvince\": null,\r\n        \"billingAddress\": false,\r\n        \"latitude\": null,\r\n        \"longitude\": null,\r\n        \"zone\": \"QC\",\r\n        \"country\": \"AL\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://10.151.35.12:9090/api/v1/private/customers/?count=1&start=1&lang=en",
+							"protocol": "http",
+							"host": [
+								"10",
+								"151",
+								"35",
+								"12"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"customers",
+								""
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "1"
+								},
+								{
+									"key": "start",
+									"value": "1"
+								},
+								{
+									"key": "lang",
+									"value": "en"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Customer Auth",
+			"item": [
+				{
+					"name": "Refresh Token",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrYXVzaGFsIiwiYXVkIjoiYXBpIiwiZXhwIjoxNjAwNDI1MDY3LCJpYXQiOjE1OTk4MjAyNjd9.LbYvebrU2pR2EDr1xXVPPlCSVMfoRUHkTXEXuPD03HgSxH--H_JhyoX0XMLXdta6Bo_pT1e3-IJrgAOE0I0QnA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"456\",\r\n  \"username\": \"john\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://10.151.35.12:9090/api/v1/auth/customer/refresh",
+							"protocol": "http",
+							"host": [
+								"10",
+								"151",
+								"35",
+								"12"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"customer",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate/login customer",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrYXVzaGFsIiwiYXVkIjoiYXBpIiwiZXhwIjoxNjAwNDI1MDY3LCJpYXQiOjE1OTk4MjAyNjd9.LbYvebrU2pR2EDr1xXVPPlCSVMfoRUHkTXEXuPD03HgSxH--H_JhyoX0XMLXdta6Bo_pT1e3-IJrgAOE0I0QnA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"password\",\r\n  \"username\": \"kaushal\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://10.151.35.12:9090/api/v1/customer/login",
+							"protocol": "http",
+							"host": [
+								"10",
+								"151",
+								"35",
+								"12"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"customer",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset customer password",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrYXVzaGFsIiwiYXVkIjoiYXBpIiwiZXhwIjoxNjAwNDI1MDY3LCJpYXQiOjE1OTk4MjAyNjd9.LbYvebrU2pR2EDr1xXVPPlCSVMfoRUHkTXEXuPD03HgSxH--H_JhyoX0XMLXdta6Bo_pT1e3-IJrgAOE0I0QnA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"current\": \"doe\",\r\n  \"password\": \"123\",\r\n  \"repeatPassword\": \"123\",\r\n  \"username\": \"john\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://10.151.35.12:9090/api/v1/customer/reset",
+							"protocol": "http",
+							"host": [
+								"10",
+								"151",
+								"35",
+								"12"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"customer",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Customer ",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrYXVzaGFsIiwiYXVkIjoiYXBpIiwiZXhwIjoxNjAwNDI1MDY3LCJpYXQiOjE1OTk4MjAyNjd9.LbYvebrU2pR2EDr1xXVPPlCSVMfoRUHkTXEXuPD03HgSxH--H_JhyoX0XMLXdta6Bo_pT1e3-IJrgAOE0I0QnA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 60,\r\n    \"emailAddress\": \"vaishali.kanjariya@gmail.com\",\r\n    \"billing\": {\r\n        \"postalCode\": \"364240\",\r\n        \"countryCode\": null,\r\n        \"firstName\": \"vaishali\",\r\n        \"lastName\": \"kanjariya\",\r\n        \"bilstateOther\": null,\r\n        \"company\": \"2018-12-12\",\r\n        \"phone\": \"8888888888\",\r\n        \"address\": \"123 street\",\r\n        \"city\": \"Toronto\",\r\n        \"stateProvince\": null,\r\n        \"billingAddress\": false,\r\n        \"latitude\": null,\r\n        \"longitude\": null,\r\n        \"zone\": \"QC\",\r\n        \"country\": \"AL\"\r\n    },\r\n    \"delivery\": {\r\n        \"postalCode\": \"364240\",\r\n        \"countryCode\": null,\r\n        \"firstName\": \"vaishali\",\r\n        \"lastName\": \"kanjariya\",\r\n        \"bilstateOther\": null,\r\n        \"company\": \"2018-12-12\",\r\n        \"phone\": \"8888888888\",\r\n        \"address\": \"123 street\",\r\n        \"city\": \"Toronto\",\r\n        \"stateProvince\": null,\r\n        \"billingAddress\": false,\r\n        \"latitude\": null,\r\n        \"longitude\": null,\r\n        \"zone\": \"QC\",\r\n        \"country\": \"AL\"\r\n    },\r\n    \"gender\": null,\r\n    \"language\": null,\r\n    \"firstName\": \"vaishali\",\r\n    \"lastName\": \"kanjariya\",\r\n    \"provider\": null,\r\n    \"storeCode\": null,\r\n    \"userName\": null,\r\n    \"rating\": 0,\r\n    \"ratingCount\": 0,\r\n    \"password\": null,\r\n    \"attributes\": null,\r\n    \"groups\": [\r\n        {\r\n            \"name\": \"string\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://10.151.35.12:9090/api/v1/customer/register",
+							"protocol": "http",
+							"host": [
+								"10",
+								"151",
+								"35",
+								"12"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"customer",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
